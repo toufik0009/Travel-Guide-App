@@ -8,25 +8,25 @@ export const category = [
         famous:['Mountain','Sunset','Beach'],
         otherImgs: [
             {
-                ImgName: 'Goa',
-                Img: 'https://plus.unsplash.com/premium_photo-1697729600112-434ee1c7f670?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                ImgName: 'Delhi',
+                Img: 'https://www.holidify.com/images/bgImages/DELHI.jpg'
             },
 
             {
-                ImgName: 'Ahmedabad',
-                Img: 'https://plus.unsplash.com/premium_photo-1676285069077-65a39ed9acf5?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                ImgName: 'Mumbai',
+                Img: 'https://www.savaari.com/blog/wp-content/uploads/2021/12/1024px-Mumbai_Aug_2018_43397784544-1024x761.jpg'
             },
             {
                 ImgName: 'Kolkata',
                 Img: 'https://images.unsplash.com/photo-1496372412473-e8548ffd82bc?q=80&w=1614&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
             },
             {
-                ImgName: 'Sahara Desert',
-                Img: 'https://plus.unsplash.com/premium_photo-1661963573455-ba0446e2cab9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                ImgName: 'Bengaluru',
+                Img: 'https://www.savills.com/prospects/wp-content/uploads/cities-lowdown-bengaluru-01.jpg'
             },
             {
-                ImgName: 'Mumbai',
-                Img: 'https://plus.unsplash.com/premium_photo-1681550093390-14477e7b196a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                ImgName: 'Hyderabad',
+                Img: 'https://images.herzindagi.info/image/2022/Oct/places-to-visit.jpg'
             },
         ]
     },
@@ -69,8 +69,8 @@ export const category = [
         famous:['Mountain','Sunset','Beach','Forest'],
         otherImgs: [
             {
-                ImgName: 'Kerns',
-                Img: 'https://images.unsplash.com/photo-1527668752968-14dc70a27c95?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                ImgName: 'Bern',
+                Img: 'https://static.toiimg.com/photo/54513904.cms'
             },
 
             {

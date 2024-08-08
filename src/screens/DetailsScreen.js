@@ -213,6 +213,7 @@ const styles = StyleSheet.create({
     scrol: {
         flexDirection: "row",
         gap: 20,
+        marginBottom:80
     },
     visit: {
         position: 'absolute',

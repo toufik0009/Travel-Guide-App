@@ -67,7 +67,7 @@ const HomeNested = () => {
 
 const FirstLookScreen = () => {
   return (
-    <Stack.Navigator initialRouteName='Main'>
+    <Stack.Navigator initialRouteName='Welcome'>
       <Stack.Screen name='Welcome' component={WelComeScreen} options={{ headerShown: false }} />
       <Stack.Screen name='Main' component={TabNavigationScreens} options={{ headerShown: false }} />
     </Stack.Navigator>
