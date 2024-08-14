@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import AppNavigation from './src/navigation/AppNavigation';
+import { MyProvider } from './src/contextApi/ContextApi';
 
 const App = () => {
 
   return (
-
-    <AppNavigation />
+    <MyProvider>
+      <AppNavigation />
+    </MyProvider>
 
   );
 }

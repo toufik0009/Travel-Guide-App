@@ -1,6 +1,7 @@
 
 export const category = [
     {
+        id:1,
         headline: "India",
         slogan: "India is my motherland; I love India! I love my country; I love India! India possesses a fine blend of material excellence and spiritual splendor; let's take pride in our country! Be proud to be an Indian!",
         image: "https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -31,6 +32,7 @@ export const category = [
         ]
     },
     {
+        id:2,
         headline: "China",
         slogan: 'The phrase "serve the people" became rhetorically important and subsequently appeared in important texts of Chinese Marxism including On the Correct Handling of Contradictions among the People. Our Communist Party and the Eighth Route and New Fourth Armies led by our Party are battalions of the revolution',
         image: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -62,6 +64,7 @@ export const category = [
         ]
     },
     {
+        id:3,
         headline: "Switzerland",
         slogan: 'Unus pro omnibus, omnes pro uno is a Latin phrase that means One for all, all for one. It is the unofficial motto of Switzerland.',
         image: "https://images.unsplash.com/photo-1594069758873-e79e9075eb7d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -92,6 +95,7 @@ export const category = [
         ]
     },
     {
+        id:4,
         headline: "Lebanon",
         slogan: "I love you in your madness: BEIRUT, Nov 4 (Reuters) - Lebanon's tourism minister unveiled a new slogan for the crisis-swept country on Thursday that aimed to portray the precarity of life there as a point of pride, roughly translating to I love you in your madness",
         image: "https://images.unsplash.com/photo-1572704956971-74e41e37d1b8?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -122,6 +126,7 @@ export const category = [
 
     },
     {
+        id:5,
         headline: "Iraq",
         slogan: `Go higher, Go further, Go hiking. Step into nature's playground - Go hiking! Escape the noise, find peace on a hiking trail. Discover new horizons on a hiking adventure.`,
         image: "https://images.unsplash.com/photo-1608925086961-dbcd276a0e71?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -152,6 +157,7 @@ export const category = [
         ]
     },
     {
+        id:6,
         headline: "Italy",
         slogan: 'Mountains are my happy place.Life is short, but the mountains are forever.Life is better in hiking boots',
         image: "https://cdn.britannica.com/82/195482-050-2373E635/Amalfi-Italy.jpg",
@@ -182,6 +188,7 @@ export const category = [
         ]
     },
     {
+        id:7,
         headline: "Malaysia",
         slogan: 'Mountains are my happy place.Life is short, but the mountains are forever.Life is better in hiking boots',
         image: "https://img.freepik.com/free-photo/beautiful-architecture-building-exterior-city-kuala-lumpur-skyline_74190-9949.jpg?size=626&ext=jpg&ga=GA1.1.2116175301.1717632000&semt=ais_user",

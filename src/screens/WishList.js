@@ -1,59 +1,36 @@
 import { Image, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { TouchableOpacity } from 'react-native';
 import HeartIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { useNavigation } from '@react-navigation/native';
 
-const WishList = ({ route }) => {
-  const navigation = useNavigation()
-  const { response } = route.params || {};
-  console.log("WishList", response);
+import { MyContext } from '../contextApi/ContextApi';
 
-  const [wishData, setWishData] = useState([]);
-  const [hearts, setHearts] = useState([]);
-  const [currentItem, setCurrentItem] = useState(null);
-
-  useEffect(() => {
-    if (response) {
-      setWishData((previous) => [...previous, response]);
-      setHearts((previous) => [...previous, true]);
-    }
-  }, [response]);
-
-  if (!response) {
-    return (
-      <View>
-        <Text>No data available</Text>
-      </View>
-    );
-  }
-
-  const toggleHeart = (index) => {
-    setWishData((previous) => previous.filter((_, i) => i !== index));
-  };
-
-  const currentPress = (response, id) => {
-    setCurrentItem(id);
-    navigation.navigate('Details', { response });
-  };
+const WishList = ({navigation}) => {
+  const { wishItems, toggleWishItems } = useContext(MyContext);
 
   return (
     <ScrollView style={styles.container}>
-      {wishData.map((res, index) => (
-        <SafeAreaView key={index}>
-          <TouchableOpacity onPress={() => currentPress(res, index)}>
-            <View style={styles.item} >
+      {wishItems.length === 0 ? (
+        <Text style={styles.noDataText}>No items in your wishlist.</Text>
+      ) : (
+        wishItems.map((res) => (
+          <SafeAreaView key={res.id}>
+            <TouchableOpacity onPress={()=>{ navigation.navigate('Details', { response:res });}}>
+
+            <View style={styles.item}>
               <Image source={{ uri: res.image }} style={styles.image} />
               <View style={styles.bottomDetails}>
                 <Text style={styles.heading}>{res.headline}</Text>
-                <TouchableOpacity style={styles.heart} onPress={() => toggleHeart(index)}>
+
+                <TouchableOpacity style={styles.heart} onPress={() => toggleWishItems(res, res.id)}>
                   <HeartIcon name="cards-heart" style={{ color: 'tomato', fontSize: 28 }} />
                 </TouchableOpacity>
               </View>
             </View>
-          </TouchableOpacity>
-        </SafeAreaView>
-      ))}
+            </TouchableOpacity>
+          </SafeAreaView>
+        ))
+      )}
     </ScrollView>
   );
 };
@@ -73,9 +50,7 @@ const styles = StyleSheet.create({
   item: {
     marginBottom: 20,
     backgroundColor: '#ffff',
-    paddingTop: 0,
     paddingHorizontal: 15,
-    paddingBottom: 0,
     borderRadius: 20,
   },
   image: {

@@ -1,64 +1,56 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { useState } from 'react';
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useContext, useState } from 'react';
 import { category } from '../dummyJson/Category';
 import { useNavigation } from '@react-navigation/native';
-import * as Animatable from 'react-native-animatable';
 import HeartIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import HeartIcon2 from 'react-native-vector-icons/MaterialCommunityIcons';
+import { MyContext } from '../contextApi/ContextApi';
 
-const MainPortion = ({ text, setText }) => {
+const MainPortion = ({ text }) => {
     const navigation = useNavigation();
-    const [categories, setCategories] = useState(category);
+    const { wishItems, toggleWishItems } = useContext(MyContext);
+    const [categories] = useState(category);
     const [currentItem, setCurrentItem] = useState(null);
-    const [hearts, setHearts] = useState(Array(category.length).fill(false));
-
-    const toggleHeart = (response, index) => {
-        const updatedHearts = hearts.map((heart, i) => (i === index ? !heart : heart));
-        setHearts(updatedHearts);
-        if (!hearts[index]) {
-            navigation.navigate('WishList', { response });
-        }
-    };
 
     const currentPress = (response, id) => {
         setCurrentItem(id);
         navigation.navigate('Details', { response });
     };
 
+    const renderItems = ({ item }) => {
+        const isWishlisted = wishItems.some((wishItem) => wishItem.id === item.id);
+
+        return (
+            <TouchableOpacity key={item.id} onPress={() => currentPress(item, item.id)}>
+                <TouchableOpacity style={styles.heart} onPress={() => toggleWishItems(item, item.id)}>
+                    <HeartIcon
+                        name={isWishlisted ? 'cards-heart' : 'cards-heart-outline'}
+                        style={{ color: 'tomato', fontSize: 28 }}
+                    />
+                </TouchableOpacity>
+
+                <View style={[styles.categoryItem, currentItem === item.id && styles.selectedCategoryItem]}>
+                    <Image source={{ uri: item.image }} style={styles.cateImg} />
+                    <Text style={styles.txt}>{item.headline}</Text>
+                    <Text numberOfLines={2} style={styles.txt1}>{item.slogan}</Text>
+                </View>
+            </TouchableOpacity>
+        );
+    };
+
+    const filteredCategories = categories.filter((value) => {
+        if (!text) return value;
+        return value.headline.toLowerCase().includes(text.toLowerCase());
+    });
+
     return (
         <View style={{ flex: 1, marginBottom: 15 }}>
             <Text style={{ fontSize: 20, padding: 12 }}>Your Destination</Text>
-            <ScrollView scrollIndicatorInsets={false}>
-                <Animatable.View
-                    animation={"fadeInUpBig"}
-                    duration={2000}
-                    style={styles.items}>
-                    {categories
-                        .filter((value) => {
-                            if (text == null) {
-                                return value;
-                            } else if (value.headline.toLowerCase().includes(text.toLowerCase())) {
-                                return value;
-                            }
-                        })
-                        .map((res, index) => (
-                            <TouchableOpacity key={index} onPress={() => currentPress(res, index)}>
-                                <TouchableOpacity style={styles.heart} onPress={() => toggleHeart(res, index)}>
-                                    {hearts[index] ? (
-                                        <HeartIcon2 name='cards-heart' style={{ color: 'tomato', fontSize: 28 }} />
-                                    ) : (
-                                        <HeartIcon name='cards-heart-outline' style={{ color: 'tomato', fontSize: 28 }} />
-                                    )}
-                                </TouchableOpacity>
-                                <View style={[styles.categoryItem, currentItem === index && styles.selectedCategoryItem]}>
-                                    <Image source={{ uri: res.image }} style={styles.cateImg} />
-                                    <Text style={styles.txt}>{res.headline}</Text>
-                                    <Text numberOfLines={2} style={styles.txt1}>{res.slogan}</Text>
-                                </View>
-                            </TouchableOpacity>
-                        ))}
-                </Animatable.View>
-            </ScrollView>
+            <FlatList
+                data={filteredCategories}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={renderItems}
+                showsVerticalScrollIndicator={false}
+            />
         </View>
     );
 };
@@ -68,7 +60,7 @@ export default MainPortion;
 const styles = StyleSheet.create({
     cateImg: {
         height: 250,
-        width: 350,
+        width: 'auto',
         marginVertical: 5,
         borderRadius: 20,
     },
@@ -92,9 +84,6 @@ const styles = StyleSheet.create({
         lineHeight: 18,
         backgroundColor: '#fff5',
         borderRadius: 12,
-    },
-    items: {
-        alignItems: 'center',
     },
     categoryItem: {
         marginBottom: 5,
